@@ -4,7 +4,7 @@
 
 import { clearAuthStorage } from '../store/useAuthStore';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1/api/';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 const ACCESS_TOKEN_KEY = 'auth.access_token';
 
 class ApiError extends Error {
@@ -35,7 +35,8 @@ async function fetchApi<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
-  const url = `${API_BASE_URL}${endpoint}`;
+  const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const url = `${API_BASE_URL}${normalizedEndpoint}`;
 
   const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
   

@@ -1,0 +1,6 @@
+{
+  "name": "MedStock - Medical Inventory Management System",
+  "description": "Comprehensive pharmacy and medical inventory management system for tracking medicines, stock levels, suppliers, delivery notes, and invoices.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

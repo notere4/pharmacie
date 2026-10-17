@@ -56,7 +56,18 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       icon: Boxes,
       permissions: ["inventory.view_stockmovement"],
     },
-   
+    {
+      path: "/users",
+      label: "Utilisateurs",
+      icon: UserRound,
+      permissions: ["auth.view_user", "auth.change_user"],
+    },
+    {
+      path: "/settings",
+      label: "Paramètres",
+      icon: Settings,
+      permissions: ["auth.view_group", "auth.change_group", "auth.change_user"],
+    },
   ];
 
   const handleClick = () => {
